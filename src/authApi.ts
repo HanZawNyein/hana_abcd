@@ -16,8 +16,8 @@ interface LoginResponse {
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8069', // Adjust to your Odoo server URL
-        credentials: 'include',
+        baseUrl: 'https://hana-api.innovixerp.com', // Adjust to your Odoo server URL
+        // credentials: 'include',
         prepareHeaders: (headers) => {
             headers.set('Content-Type', 'application/json');
             return headers;
@@ -25,7 +25,7 @@ export const authApi = createApi({
         responseHandler: async (response) => {
             const data = await response.json(); // Get the response body
             // const sessionId = response.headers.get('Set-Cookie'); // Extract cookie from headers
-            // console.log('Response Headers:', response.headers);
+            console.log('Response Headers:', response.headers);
             // console.log('Session ID:', sessionId);
             return { data, headers: response.headers };
         },// Ensures cookies (session_id) are stored
@@ -35,7 +35,13 @@ export const authApi = createApi({
             query: (credentials) => ({
                 url: '/api/login',
                 method: 'POST',
-                body: {login:credentials.email, password:credentials.password},
+                body: {
+                    jsronrpc:2.0,
+                    params:{
+                        login:'admin',
+                        password:'admin'
+                    },
+                },
                 headers: {
                     'Content-Type': 'application/json',
                 },

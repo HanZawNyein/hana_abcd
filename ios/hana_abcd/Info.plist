@@ -48,5 +48,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<!-- Network Permissions -->
+    	<key>NSAppTransportSecurity</key>
+    	<dict>
+    		<key>NSAllowsArbitraryLoads</key>
+    		<true/>
+    		<key>NSAllowsLocalNetworking</key>
+    		<true/>
+    	</dict>
+
 </dict>
+
 </plist>
