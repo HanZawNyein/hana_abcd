@@ -12,17 +12,17 @@ const LoginScreen: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
 
     const handleLogin = async () => {
-        console.log('login now');
+        // console.log('login now');
         try {
             const response = await login({ email, password }).unwrap();
             // @ts-ignore
-            console.log('this is response', response);
-            console.log(response);
+            // console.log('this is response', response);
+            // console.log(response);
             // @ts-ignore
             dispatch(setUser(response)); // Store user data & token
             Alert.alert(JSON.stringify(response.headers['map']['set-cookie']));
-            console.log(response);
-            console.log(response);
+            // console.log(response);
+            // console.log(response);
         } catch (error) {
             console.error('Login error:', error);
         }

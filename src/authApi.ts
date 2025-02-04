@@ -24,9 +24,9 @@ export const authApi = createApi({
         },
         responseHandler: async (response) => {
             const data = await response.json(); // Get the response body
-            const sessionId = response.headers.get('Set-Cookie'); // Extract cookie from headers
-            console.log('Response Headers:', response.headers);
-            console.log('Session ID:', sessionId);
+            // const sessionId = response.headers.get('Set-Cookie'); // Extract cookie from headers
+            // console.log('Response Headers:', response.headers);
+            // console.log('Session ID:', sessionId);
             return { data, headers: response.headers };
         },// Ensures cookies (session_id) are stored
     }),
